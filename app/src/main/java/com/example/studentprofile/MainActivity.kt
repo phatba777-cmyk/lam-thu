@@ -1,20 +1,27 @@
 package com.example.studentprofile
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.example.studentprofile.model.Student
 
 class MainActivity : AppCompatActivity() {
+
+    // Đối tượng sinh viên hiện tại
+    private var currentStudent = Student(
+        id = "22505120005",
+        name = "Nguyễn Văn An",
+        className = "22CT111",
+        email = "an.nv@ute.udn.vn",
+        gpa = 3.75
+    )
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_main)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+    }
+
+    // Hàm gán toàn bộ thông tin từ model lên các Views giao diện
+    private fun bindStudentData(student: Student) {
+        // Code binding dữ liệu
     }
 }
